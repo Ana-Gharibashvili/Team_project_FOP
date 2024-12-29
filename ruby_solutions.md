@@ -223,6 +223,6 @@ else
     b = next_fib  # updates b to the newly calculated number
     i += 1
   end
-  puts "The Fibonacci number is #{b}" # and finally we have a result
+  puts "The Fibonacci number is #{b}" # and finally we have an output 
 end
 
