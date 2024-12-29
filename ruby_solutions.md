@@ -1,3 +1,4 @@
+
 #In this following algorithm, we have to write the code in minimal subsets,
 #which means that our codes only include variables, loops and conditions.
 #here we have implemented simple algorithms written in Ruby, 
