@@ -76,32 +76,30 @@ end
 
 
 #This program reverses the digits of a given number
-def reverse_digits_of_number(num)
-   reversed = 0 #firstly, we will start with 0, which means that we need an empty container for our reversed number
+#firstly, we will start with 0, which means that we need an empty container for our reversed number
 #of course we keep looping as long as digits still there. and in this process we gradually peeling off digits,
 #one by one and placing them in the correct order
-   while num > 0 
-     digit = num % 10  #this will grab tha last digit 
-     reversed = reversed * 10 + digit #then lets take last digit and add it to the reversed number
-                                      #we shift everything in 'reversed' left by multiplying by 10
-                                      #finally we add the new digit
-     num = num / 10 #this will remove the last digit of num
-   end
-#method 'reversed' contains the number with its digits reversed 
-   return reversed  #and with that we will see our number that is reversed
-end
-puts "Enter a number to reverse:" #as the previous task, we know that this method helps the user to enter the number
-input = gets.chomp  #than when user input something, it means it is stored as a string
-num = input.to_i  #this will convert the input string to an integer
-#of course we are using if statement to check,if the number is negative and if it is, then 
-#it will print a message
-if num < 0
-   puts "Please enter a positive number"
-else #and if it is positive number, it's gonna call the method to reverse the digits 
-     #and it will output the result
-   result = reverse_digits_of_number(num)  
-   puts result
-end
+def reverse_digits_of_number(num) 
+   reversed = 0      #an empty container
+   while num > 0     #now we loop as long as the number has any digits left
+     digit = num % 10        #this will grab last digit 
+     reversed = reversed * 10 + digit   #then let's take last digit and add it to the reversed number
+                                        #we shift everything in 'reversed' left by multiplying by 10
+                                        #and finally we add the new digit
+     num = num / 10    #this removes the last digit of num
+   end                 #ends the while loop
+   return reversed    #method 'reversed' contains the number with its digits reversed 
+end                   #and with that we will see our number that is reversed
+puts "Enter a number to reverse:" #we know that this method helps the user to enter the number
+input = gets.chomp   #then when user input something, it means it is stored as a string
+num = input.to_i     #it converts the input string to an integer
+if num < 0                                  #of course we are using if statement to check,if the number is negative and if it is, then 
+   puts "Please enter a positive number"    #it will print a message
+#and if it is positive number 
+else 
+   result = reverse_digits_of_number(num)  #it's gonna call the method to reverse the digits 
+   puts result                             #and it will output the result
+end                           #end of block
 
 
 #In the following algorithm, we have to check if a number is prime,
