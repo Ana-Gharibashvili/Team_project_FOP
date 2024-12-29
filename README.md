@@ -18,6 +18,13 @@
    using sum += i to add i to sum and i += 1 to increment i by 1 on every iteration. With while loop, we iterate through the numbers from 1 to n, 
    then add each value of i to sum. Once we finish loop, we use puts for input/output and handle errors by returning 0 if the input is invalid.
 
+   For the second algorithm, it calculates the factorial of a number by multiplying all integers from 1 to the given number. It starts by taking user input, ensuring it’s a valid,
+   non-negative number. If the input is valid, it initializes the factorial as 1 and uses a while loop to multiply the factorial by each number down to 1. After the calculation,
+   it outputs the result. For the variable assignment, the program uses the = operator to assign values like n = 'input.to_i' and 'factorial = 1'. Also we have to use arithmetic operations, 
+   which this program definitely includes. It uses * for multiplication, which is 'factorial *= n' and - for subtraction, which is 'n -= 1'. This program also using conditionals, as we see, 
+   an if statement checks that if the input is negative, show the error message. Otherwise, it proceeds to calculate the factorial. For the loops, we use while loop which runs the calculation 
+   until n becomes 0. And finally we made the end and for the I/O, the program uses 'gets.chomp' to capture user input and 'puts' to display the result.
+
    As our third algorithm, we have gcd of two numbers, which calculates greatest common divisor of two numbers by using Euclidean algorithm. We start by error handling, 
   which checks if number is zero and displays an error message if it is true. We also use variable assignment by setting a and b to the user's input. 
   The method performs arithmetic operations by using the modulo operator to update a and b on every iteration. A while loop continues until b becomes zero, 
