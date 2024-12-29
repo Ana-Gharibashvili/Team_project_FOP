@@ -42,4 +42,7 @@
  by any of them. If this happens, it returns false. If no divisors are found, it returns true, which means that n is prime. The algorithm also involves arithmetic operations 
  with the modulo operator (%) to check divisibility and uses I/O to print the result.
 
-  
+ As our seventh algorithm, we have a method that identifies the largest digit in a given integer. First, the number is converted to a string using variable assignment. We 
+ initialize the largest_digit variable to 0 and then set it as the starting point. We use a for loop to iterate through each character in the string, which converts each 
+ digit back to an integer. Conditional checks are used to compare each digit with the current largest digit. If a larger digit is found, it updates the largest_digit 
+ variable. After the loop finishes, the method returns the largest digit. I/O is handled by returning the result of the comparison. 
