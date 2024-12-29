@@ -1,8 +1,10 @@
 # Team_project_FOP
 
-   Ruby is a high-level programming language that is known for being simple and easy to use. It was created with the goal of making programming enjoyable and productive,
-   so it's easy to read and understand. Ruby supports different ways of writing code, such as object-oriented, procedural and functional programming. It's especially popular in web
-   development, largely because of the Ruby on Rails framework which helps developers build web apps quickly. 
+  For our project, we are working with Ruby, a high-level programming language designed to be simple, readable and enjoyable to use. Ruby supports different ways of writing code, such as
+  object-oriented, procedural and functional programming. It's particularly well-known in web development, mainly due to the Ruby on Rails framework, which allows developers to build web 
+  applications quickly and efficiently. In this project, we will design and implement a simple interpreter for a programming language. The project will focus on creating and supporting a minimal
+  subset of the language with an emphasis on basic constructs like variables, arithmetic, conditionals and iterative control flow. The interpreter will be capable of executing simple algorithms,
+  serving as a proof of its functionality. 
    
 # Algorithms
    
