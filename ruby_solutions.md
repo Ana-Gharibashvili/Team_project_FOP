@@ -121,18 +121,13 @@ end
 
 
 
-#This program checks if a number is a palindrome
-#A palindrome is a number that reads the same forwards and backwards
-def is_palindrome(n) 
-#so this method will change the number into a string and this gonna make it easier 
-#to check the order of digits
-   str_n = n.to_s
-   reversed_str = str_n.reverse #it's create a reversed string and will help us to see
-                              #if digits are the same when reversed
-   return str_n == reversed_str #then it will compare the original string to reversed one
-                              #and if they are identical, then it's palindrome and returns true
-                              #if it's not then return false
-end
+#This program checks if a number is a palindrome.
+#A palindrome is number that reads the same forwards and backwards
+def is_palindrome(n)       #so this method will change the number into a string and this gonna make it easier 
+   str_n = n.to_s          #to check the order of digits
+   reversed_str = str_n.reverse  #it is create a reversed string and will help us to see if digits are the same when reversed
+   return str_n == reversed_str  #so then it will compare the original string to reversed one and if they are identical,
+end                              #then it's palindrome and returns true, if it's not then return false
 
 
 
