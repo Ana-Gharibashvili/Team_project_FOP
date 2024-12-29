@@ -61,6 +61,10 @@
  by digit and the puts function is used to display the result.
 
 
+ As our ninth algorithm, we have a method that generates and prints the multiplication table for a given number up to 10. We accept user input, which is then 
+ converted to an integer using I/O and variable assignment. A while loop is used to iterate from 1 to 10. During each iteration, the product of the input number 
+ and the current value of i is printed by using puts. The loop continues until i becomes greater than 10, with arithmetic operations to calculate the 
+ multiplication and increment i by 1 after each iteration. Finally, the result is printed by using puts.
 
    Now for the final algorithm, it calculates the Nth Fibonacci number. The Fibonacci sequence begins with 0 and 1, where each subsequent number is the sum of the two preceding ones. 
    The program starts by taking user input for n and converts it into an integer. If N is 0 or 1, it directly returns the corresponding Fibonacci numbers (0 or 1). For values greater than 1, 
