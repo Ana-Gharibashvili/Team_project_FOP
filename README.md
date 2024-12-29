@@ -4,6 +4,7 @@
    so it's easy to read and understand. Ruby supports different ways of writing code, such as object-oriented, procedural and functional programming. It's especially popular in web
    development, largely because of the Ruby on Rails framework which helps developers build web apps quickly. 
    
+# Algorithms
    
    While Ruby is a powerful and versatile language, its core strengths can be better understood by examining minimal language subsets. A minimal subset focuses on a small but 
    essential portion of the language's features. This approach makes it easier to understand how the language executes basic instructions, manages control flow, and handles 
@@ -36,13 +37,31 @@
   number is displayed. The program uses the = operator for variable assignment, arithmetic operations, like % and /, and an if statement to handle negative inputs. The while loop reverses the digits
   and for I/O, gets.chomp captures input and puts displays the result.
 
-  
   As our fifth algorithm, we determine if a given number N is prime. We start with error handling, which checks if the number is less than or equal to 1, in which case it 
  returns false because prime numbers must be greater than 1. We also use for loop to iterate through numbers from 2 to the square root of n, which checks if n is divisible 
  by any of them. If this happens, it returns false. If no divisors are found, it returns true, which means that n is prime. The algorithm also involves arithmetic operations 
  with the modulo operator (%) to check divisibility and uses I/O to print the result.
 
+  For the sixth algorithm, it checks if a number is a palindrome, which means it reads the same forwards and backwards. It starts by converting the number into a string, which makes it easier
+ to compare the digits. Then it creates a reversed version of the string. It compares the original string to the reversed one and if they are identical, it returns true, indicating that the 
+  number is a palindrome. Otherwise it returns false. So the program uses 'to_s' method for converting the number to a string. It employs the reverse method to reverse the string and uses a 
+ comparison == to check if the original and reversed strings match. For I/O, the program handles input and output separately, though the main function does not directly handle them.
+
  As our seventh algorithm, we have a method that identifies the largest digit in a given integer. First, the number is converted to a string using variable assignment. We 
  initialize the largest_digit variable to 0 and then set it as the starting point. We use a for loop to iterate through each character in the string, which converts each 
  digit back to an integer. Conditional checks are used to compare each digit with the current largest digit. If a larger digit is found, it updates the largest_digit 
  variable. After the loop finishes, the method returns the largest digit. I/O is handled by returning the result of the comparison. 
+
+ For the eighth algorithm, it calculates the sum of digits of a given number. It starts by taking the user's input and converting it to an integer. It checks a validation, so if the number 
+ is negative, an error message is displayed. Otherwise the algorithm uses a while loop to repeatedly extract the last digit of the number and add it to the sum. This is done using the modulo 
+  operator '%'. After each digit is added, the number is reduced by performing integer division '/ 10' to remove the last digit. The loop continues until all digits have been processed. Finally,
+  the sum is displayed. So we see that the program uses the += operator for adding the last digit to the sum. It handles error checking with an if statement. The while loop processes the number digit
+ by digit and the puts function is used to display the result.
+
+
+
+   Now for the final algorithm, it calculates the Nth Fibonacci number. The Fibonacci sequence begins with 0 and 1, where each subsequent number is the sum of the two preceding ones. 
+   The program starts by taking user input for n and converts it into an integer. If N is 0 or 1, it directly returns the corresponding Fibonacci numbers (0 or 1). For values greater than 1, 
+   the algorithm initializes the first two Fibonacci numbers (0 and 1) and uses a while loop to calculate the Fibonacci number at position n by summing the previous two numbers. This continues
+   until the Nth Fibonacci number is reached and the result is displayed. So finally we see that the program uses the = operator for variable assignments and arithmetic operations like + to sum
+   the previous two Fibonacci numbers. The while loop iterates from 2 to N to calculate the Fibonacci sequence.
