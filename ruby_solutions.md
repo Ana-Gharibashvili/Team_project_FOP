@@ -156,21 +156,20 @@ end
 
 
 
-#This following algorithm calculates the sum of digits of a given number
-#it means it takes a number, breaks it into individual digits and adds them together.
-sum = 0
-puts "Enter a number:" #the user inputs here a number
-number = gets.chomp.to_i #this convert input to an integer
-if number < 0 #this part handles an error
-   puts "it's an error. Please enter a positive number"
-else
-#now we are using the while loop and it will run as long as the number is positive and it will continue one by one
-   while number > 0 
-     sum += number % 10  #this method gives us the last digit and we add this digit to sum
-     number = number / 10  #then it's gonna perform integer division to remove the last digit
-   end
-   puts sum #finally it prints result
-end
+#This following algorithm calculates the sum of digits of a given number and
+#it means it takes a number, breaks it into individual digits and finally adds them together.
+sum = 0  #holds the sum of the digits
+puts "Enter a number:" 
+number = gets.chomp.to_i     #converts input to an integer
+if number < 0                #this handles an error
+   puts "it's an error. Please enter a positive number"  #if it's an error it will output the message
+else                  #now we are using the while loop and it will run as long as the number is positive 
+   while number > 0   #and it will continue one by one
+     sum += number % 10  #this method gives us the last digit and add this digit to sum
+     number = number / 10  #then it's going to perform integer division to remove the last digit
+   end                   # ends while loop
+   puts sum          #so finally it prints result of the sum
+end                  #ends if block
 
 
 
