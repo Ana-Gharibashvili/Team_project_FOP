@@ -39,8 +39,8 @@ if n < 0                               #this will check if the number is negativ
 else       #and if the number that user input is positive than it will calculate its factorial
    factorial = 1  #this will initialize the factorial to 1
    while n > 0    #uses a while loop to multiply the factorial by each number down to 1
-      factorial *= n  #multiply factorial by the current number
-      n -= 1  #decrement number by 1
+      factorial *= n  #multipling factorial by the current number
+      n -= 1  
    end    #ends the loop
    puts "The factorial is #{factorial}" 
 end   #and finally when the calculate is done, we can show the result
