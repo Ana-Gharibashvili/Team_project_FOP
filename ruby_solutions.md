@@ -76,9 +76,9 @@ end
 
 
 #This program reverses the digits of a given number
-#firstly, we will start with 0, which means that we need an empty container for our reversed number
-#of course we keep looping as long as digits still there. and in this process we gradually peeling off digits,
-#one by one and placing them in the correct order
+#we will start with 0, which means that we need an empty container for our reversed number
+#of course we keep looping as long as digits still there.
+#and in this process we gradually peeling off digits, one by one and placing them in the correct order
 def reverse_digits_of_number(num) 
    reversed = 0      #an empty container
    while num > 0     #now we loop as long as the number has any digits left
