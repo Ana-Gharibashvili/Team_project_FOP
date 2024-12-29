@@ -5,5 +5,7 @@
    largely because of the Ruby on Rails framework which helps developers build web apps quickly. 
    
    
-   While Ruby is a powerful and versatile language, its core strengths can be better understood by examining minimal language subsets. A minimal subset focuses on a small but essential portion of the language's features. This approach makes it easier to understand how the language executes basic instructions, manages control flow, and handles variables. By working with a minimal subset, developers can build a solid foundation before diving into Ruby's more complex features.
+   While Ruby is a powerful and versatile language, its core strengths can be better understood by examining minimal language subsets. A minimal subset focuses on a small but 
+   essential portion of the language's features. This approach makes it easier to understand how the language executes basic instructions, manages control flow, and handles 
+   variables. By working with a minimal subset, developers can build a solid foundation before diving into Ruby's more complex features.
 
