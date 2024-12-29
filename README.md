@@ -30,6 +30,13 @@
   The method performs arithmetic operations by using the modulo operator to update a and b on every iteration. A while loop continues until b becomes zero, 
   at which point the result is stored in a. Finally, I/O is handled with puts to print the result.
 
+  For the fourth algorithm, it reverses the digits of a given number. It takes user input as a string, converts it into an integer and checks if the number is valid. The program checks a validation. 
+  If the number is negative, it tells the user to enter a positive number. But if it's valid number, then it proceeds to reverse the digits. By using a while loop, the last digit is extracted with
+  the modulo operator '%' and added to the reversed number. The current digits in reversed are shifted left by multiplying by 10 and the number is reduced by dividing it by 10. Finally, the reversed 
+  number is displayed. The program uses the = operator for variable assignment, arithmetic operations, like % and /, and an if statement to handle negative inputs. The while loop reverses the digits
+  and for I/O, gets.chomp captures input and puts displays the result.
+
+  
   As our fifth algorithm, we determine if a given number N is prime. We start with error handling, which checks if the number is less than or equal to 1, in which case it 
  returns false because prime numbers must be greater than 1. We also use for loop to iterate through numbers from 2 to the square root of n, which checks if n is divisible 
  by any of them. If this happens, it returns false. If no divisors are found, it returns true, which means that n is prime. The algorithm also involves arithmetic operations 
