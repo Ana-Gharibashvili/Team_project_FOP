@@ -25,25 +25,25 @@ end
 
 
 
-#This program calculates the factorial of a given number,
-#meaning it multiplies all the numbers from 1 up to that number
-#For example, if the number is 5, the factorial of 5 is 5*4*3*2*1=120
-#so now we will define that calculates that
-puts "Enter a number:" #according to this method, the user can enter a number. this is the part where 
-                       #the program starts it. when the user enter the number, it will calculate the factorial
-input = gets.chomp  #'gets.chomp' captures input and removes the newline character
-n = input.to_i       #and with using 'input.to_i' we convert the input string to an int
-if n < 0  #this will check if the number is negative,it's an error and will notify the user that should only enter 
-          #the positive number
-   puts "Enter only positive numbers"
-else #and if the number that the user input is positive than it will calculate its factorial
-   factorial = 1 #initialize the factorial to 1
-   while n > 0
+#This program calculates the factorial of a given number, meaning it
+#multiplies all the numbers from 1 up to that number
+#For example, if the number is 5 then the factorial of 5 is 5*4*3*2*1=120
+#so now we will define which calculates that
+puts "Enter a number:" #according to this method, the user can enter a number. so this is the part where 
+                       #the program starts it and when the user enter the number, it will calculate the factorial
+input = gets.chomp  #method 'gets.chomp' captures input and removes the newline character and 
+n = input.to_i       #with using 'input.to_i', we convert the input string to an int
+
+if n < 0                               #this will check if the number is negative, it's an error and
+   puts "Enter only positive numbers"  #will notify the user that should only enter the positive number
+else       #and if the number that user input is positive than it will calculate its factorial
+   factorial = 1  #this will initialize the factorial to 1
+   while n > 0    #uses a while loop to multiply the factorial by each number down to 1
       factorial *= n  #multiply factorial by the current number
       n -= 1  #decrement number by 1
-   end
-   puts "The factorial is #{factorial}" #and finally when the calculate is done, we can show the result
-end
+   end    #ends the loop
+   puts "The factorial is #{factorial}" 
+end   #and finally when the calculate is done, we can show the result
 
 
 
