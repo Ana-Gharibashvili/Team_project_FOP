@@ -71,3 +71,11 @@
    the algorithm initializes the first two Fibonacci numbers (0 and 1) and uses a while loop to calculate the Fibonacci number at position n by summing the previous two numbers. This continues
    until the Nth Fibonacci number is reached and the result is displayed. So finally we see that the program uses the = operator for variable assignments and arithmetic operations like + to sum
    the previous two Fibonacci numbers. The while loop iterates from 2 to N to calculate the Fibonacci sequence.
+
+ We designed these ten algorithms to highlight essential programming features: variable assignment with =, arithmetic operations (+, -, *, /, %), conditional 
+ statements (if-else), loops (while), and input/output using puts. Advanced constructs like recursion, function calls, arrays, or lists were intentionally avoided 
+ to maintain clarity and simplicity. Additionally, these algorithms have also been implemented in Java for broader applicability.
+
+ With our language subset clearly defined, we now move on to building a simple interpreter capable of processing and executing code written in this subset. The 
+ interpreter will focus on parsing and execution while ensuring syntax error detection for better reliability. Our priority remains simplicity and correctness over 
+ raw performance, ensuring the interpreter is both functional and easy to understand.
