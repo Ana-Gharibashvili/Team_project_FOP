@@ -46,35 +46,90 @@ public class Parser {
     }
 
     private Node ifStatement() {
-        // TODO - implement logic for if statement and return appropriate Node element
-        return null;
+        position++; // Skip 'if'
+        Node condition = comparison();
+        List<Node> thenBranch = new ArrayList<>();
+        List<Node> elseBranch = null;
+
+        while (position < tokens.size() &&
+                current().getType() != TokenType.END &&
+                current().getType() != TokenType.ELSE) {
+            if (current().getType() == TokenType.NEWLINE) {
+                position++;
+                continue;
+            }
+            thenBranch.add(statement());
+        }
+
+        if (position < tokens.size() && current().getType() == TokenType.ELSE) {
+            position++; // Skip 'else'
+            elseBranch = new ArrayList<>();
+            while (position < tokens.size() && current().getType() != TokenType.END) {
+                if (current().getType() == TokenType.NEWLINE) {
+                    position++;
+                    continue;
+                }
+                elseBranch.add(statement());
+            }
+        }
+
+        if (position >= tokens.size() || current().getType() != TokenType.END) {
+            throw new RuntimeException("Expected 'end' keyword");
+        }
+        position++; // Skip 'end'
+
+        return new IfNode(condition, thenBranch, elseBranch);
     }
 
     private Node whileStatement() {
-        // TODO - implement logic for while statement and return appropriate Node element
-        return null;
+        position++; // Skip 'while'
+        Node condition = comparison();
+        List<Node> body = new ArrayList<>();
+
+        while (position < tokens.size() && current().getType() != TokenType.END) {
+            if (current().getType() == TokenType.NEWLINE) {
+                position++;
+                continue;
+            }
+            body.add(statement());
+        }
+
+        if (position >= tokens.size() || current().getType() != TokenType.END) {
+            throw new RuntimeException("Expected 'end' keyword");
+        }
+        position++; // Skip 'end'
+
+        return new WhileNode(condition, body);
     }
 
     private Node comparison() {
-        // TODO - implement logic for comparison and return appropriate Node element
-        return null;
+        Node node = expression();
+
+        while (position < tokens.size() && isComparisonOperator(current().getType())) {
+            Token operator = current();
+            position++;
+            Node right = expression();
+            node = new ComparisonNode(node, operator.getType(), right);
+        }
+
+        return node;
     }
 
     private boolean isComparisonOperator(TokenType type) {
-        return type == TokenType.EQUALS || 
-               type == TokenType.NOT_EQUALS || 
-               type == TokenType.GREATER_THAN || 
-               type == TokenType.LESS_THAN ||
-               type == TokenType.GREATER_THAN_EQUALS ||
-               type == TokenType.LESS_THAN_EQUALS;
+        return type == TokenType.EQUALS ||
+                type == TokenType.NOT_EQUALS ||
+                type == TokenType.GREATER_THAN ||
+                type == TokenType.LESS_THAN ||
+                type == TokenType.GREATER_THAN_EQUALS ||
+                type == TokenType.LESS_THAN_EQUALS;
     }
 
     private Node expression() {
         Node node = term();
 
-        while (position < tokens.size() && 
-               (current().getType() == TokenType.PLUS || 
-                current().getType() == TokenType.MINUS)) {
+        while (position < tokens.size() &&
+                (current().getType() == TokenType.PLUS ||
+                        current().getType() == TokenType.MINUS)) {
             Token operator = current();
             position++;
             Node right = term();
@@ -85,28 +140,71 @@ public class Parser {
     }
 
     private Node term() {
-        // TODO - implement logic for term statement and return appropriate Node element
-        return null;
+        Node node = factor();
+
+        while (position < tokens.size() &&
+                (current().getType() == TokenType.MULTIPLY ||
+                        current().getType() == TokenType.DIVIDE ||
+                        current().getType() == TokenType.MODULO)) {
+            Token operator = current();
+            position++;
+            Node right = factor();
+            node = new BinaryOperationNode(node, operator.getType(), right);
+        }
+
+        return node;
     }
 
     private Node factor() {
-        // TODO - implement logic factor statement and return appropriate Node element
-        return null;
+        Token token = current();
+        position++;
+
+        return switch (token.getType()) {
+            case NUMBER -> new NumberNode(Double.parseDouble(token.getValue()));
+            case STRING -> new StringNode(token.getValue());
+            case READ -> new ReadNode();
+            case IDENTIFIER -> {
+                if (position < tokens.size() && current().getType() == TokenType.ASSIGN) {
+                    position++;
+                    Node value = expression();
+                    yield new AssignmentNode(token.getValue(), value, context);
+                }
+                yield new VariableNode(token.getValue(), context);
+            }
+            case LEFT_PAREN -> {
+                Node node = expression();
+                if (position >= tokens.size() || current().getType() != TokenType.RIGHT_PAREN) {
+                    throw new RuntimeException("Expected ')'");
+                }
+                position++;
+                yield node;
+            }
+            default -> throw new RuntimeException("Unexpected token: " + token);
+        };
     }
 
     private Node printStatement() {
-        // TODO - implement logic for print statement and return appropriate Node element
-        return null;
+        position++; // Skip 'print'
+        return new PrintNode(expression());
     }
 
     private Node readStatement() {
-        // TODO - implement logic for read statement and return appropriate Node element
-        return null;
+        position++; // Skip 'read'
+        return new ReadNode();
     }
 
     private Node assignmentOrExpression() {
-        // TODO - implement logic for assignment and expression and return appropriate Node element
-        return null;
+        Token token = current();
+        position++;
+
+        if (position < tokens.size() && current().getType() == TokenType.ASSIGN) {
+            position++;
+            Node value = expression();
+            return new AssignmentNode(token.getValue(), value, context);
+        }
+
+        position--; // Go back if it's not an assignment
+        return expression();
     }
 
     private Token current() {
