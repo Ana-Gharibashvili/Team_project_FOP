@@ -122,4 +122,5 @@ the language. This means that the Parser organizes the tokens into a logical str
 assignments, if statement, while loops and expressions, like arithmetic operations. At this stage, methods like statement() and expression() help the Parser group tokens together and construct the 
 appropriate syntax tree. The Parser does this by recognizing operators and keywords. 
 Lastly, we move to the Context class, which is responsible for managing variables during the execution of the program. It stores a map of variable names and their values,
-so the Interpreter can retrieve and modify them as needed. If the program tries to access a variable that hasn't been defined,
+so the Interpreter can retrieve and modify them as needed. If the program tries to access a variable that hasn't been defined, the Context class will throw an error, ensuring that the program behaves correctly.
+
