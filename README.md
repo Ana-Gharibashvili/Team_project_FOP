@@ -1,5 +1,7 @@
 # Team_project_FOP
 
+## Project title: RubyJava Bridge: Minimal Subsets and Simple Interpreters
+
   For our project, we are working with Ruby, a high-level programming language designed to be simple, readable and enjoyable to use. Ruby supports different ways of writing code, such as
   object-oriented, procedural and functional programming. It's particularly well-known in web development, mainly due to the Ruby on Rails framework, which allows developers to build web 
   applications quickly and efficiently. In this project, we will design and implement a simple interpreter for a programming language. The project will focus on creating and supporting a minimal
@@ -124,3 +126,64 @@ appropriate syntax tree. The Parser does this by recognizing operators and keywo
 Lastly, we move to the Context class, which is responsible for managing variables during the execution of the program. It stores a map of variable names and their values,
 so the Interpreter can retrieve and modify them as needed. If the program tries to access a variable that hasn't been defined, the Context class will throw an error, ensuring that the program behaves correctly.
 
+
+
+# feature/example algorithms
+ In this Ruby interpreter project, the feature algorithms play a crucial role in converting ruby code into executable operations. The process begins with tokenization, which involves breaking down the input code 
+ into smaller, manageable units called tokens. Tokens are essentially the building blocks of the code, representing keywords, operators, variables, literals, and other components of the language. This step is 
+ necessary because the interpreter needs to recognize the individual elements of the code before it can analyze them further. 
+ The next step is parsing. This phase analyzes the sequence of tokens and checks whether they follow the correct syntax and structure of the Ruby language. The parser constructs a data structure, often referred 
+ to as the AST, which represents the hierarchical organization of the code. The AST allows the interpreter to understand the relationships between different elements and how they should be 
+ evaluated.
+ After parsing, the interpreter processes the AST and executes the operations defined by the code. This phase involves executing arithmetic operations, handling loops and conditionals, and 
+ interacting with variables and functions. The evaluator interprets each node in the AST, carries out the corresponding operation, and produces results based on the logic in the source code.
+ Together, these feature algorithms enable the interpreter to execute Ruby-like programs by translating the raw input code into meaningful actions. They provide the core functionality of the interpreter, 
+ ensuring that each piece of code is properly tokenized, parsed, and evaluated, ultimately producing the expected output. Without these algorithms, the interpreter wouldn't be able to understand and execute the 
+ instructions in the source code.
+
+ Here we have some implemented classes.
+ First java code we have is which defines an AssignmentNode  class, which represents a variable assignment operation in an interpreter. It stores a value in a variable within a specific context. 
+ The class contains three key fields. The name represents the variable's name being assigned. The value refers to the value being assigned, which is evaluated from another node. Lastly, the context serves as a 
+ storage system that holds and manages variable values. The evaluate method first evaluates the value node to obtain a result. It then stores this result in the context under the specified variable name. 
+ Finally, the method returns the evaluated result.
+ We also have ComparisonNode class which represents a comparison operation, which checks if two valuea are equal, not equal, greater than, or less than each other in AST. It has three fields: left, right and 
+ operator to specify the comparison operation. In the evaluate method, the left and right nodes are evaluated, and their results are converted into double values. A switch statement then checks the operator and 
+ checks equality, inequality, which is less, which is greater, which is less than or equal, which is greater than or equal. If we don't have relatable operator, we throw an exception. The result of the 
+ comparison is returned, making this class essential for evaluating conditional expressions in the interpreter.
+ IfNode class represents an if-else statement in the abstract syntax tree. It has three fields: condition, which represents the condition for the if statement, thenBranch, which is a list of nodes to execute if 
+ the condition is true, and elseBranch which is a list of nodes to execute if the condition is false. In the evaluate method, the condition is evaluated, and its result is stored as a boolean. If the condition 
+ is true, the theBranch is evaluated, and the result of each node in that branch is stored in result.  If the condition is false and there is an elseBranch, it evaluates the nodes in the elseBranch instead.The 
+ final result is returned, which corresponds to the last evaluated node, depending on the outcome of the condition. This class handles the conditional logic for the "if-else" structure in the interpreter. 
+ NumberNode class represents a node that holds a numeric value. We have value, that stores the numeric value of the code in double. Then we have evaluate method that returns the stored numeric value of the node. 
+ PrintNode class represents a node that handles the print operation in the interpreter. The evaluate method evaluates the expression node to get value. If the value is a String, it prints the string.
+ If the value is a Number, it prints the number. Otherwise, it prints the value as-is. It returns the value of the expression. This class is used in the interpreter to handle print statements, and when 
+ evaluated, it prints the value of the expression to the console.
+ ReadNode class handles reading user input for the interpreter. It implements the Node interface and uses a Scanner to read input from the console. The evaluate method reads input, trims it, and attempts to c 
+ convert it to double. If the input is invalid, it throws a RuntimeException. The class also includes methods to customize or reset the input source, allowing flexibility in how input is handled.
+ StringNode class represents a string value. It stores a String and has an evaluate method that simply returns this string value when called. This class is used in the interpreter to represent string literals. 
+ VariableNode class represents a variable in the interpreter. It stores the variable's name and the Context object, which holds the variable's value. The evaluate method retrieves the value of the variable from 
+ the context based on its name. This class is used to represent variables and look up their values during the evaluation process in the interpreter.
+ The WhileNode class is used to represent a while loop in the interpreter. It holds a condition to evaluate and a list of nodes that make up the body of the loop. In the evaluate method, the condition is checked 
+ in a loop. As long as the condition evaluates to true, the body of the loop is executed. After each iteration, the result of the last executed node is stored in the result variable. Once the condition becomes 
+ false, the loop stops, and the final result is returned. This structure allows the interpreter to handle repetitive logic based on conditions.
+ All of them implement Node interface which has a single method evaluate, which we use in every class.
+ The Algorithms class is designed to run various algorithms using an interpreter for the ruby subset. The class manages test inputs, sets up a custom input supplier for the interpreter, and provides methods to 
+ execute different algorithms. The constructor initializes the interpreter and a queue (testInputs) that holds predefined inputs for each algorithm. It also sets up a custom input supplier (setInputSupplier) to 
+ provide inputs for each test case when read is called in the program. Each method within the Algorithms class defines a different algorithm as a string of code. These methods interpret the code using the 
+ interpreter.interpret() method. The cleanup() method resets the input supplier once the test executions are complete, ensuring that the system is ready for the next set of inputs. 
+ Again, we have Context class, which manages variables during the execution of the program.
+ The interpreter logs debug information for tracing and handles errors by logging and throwing a runtime exception. The Interpreter also provides access to its Context, where it stores and retrieves variables 
+ used during execution.
+ Lexer class takes a string of source code and converts it into a list of tokens to understand and execute the code. It reads through the input character by character, identifying different types of tokens like 
+ numbers, keywords, strings, operators, and identifiers. If something goes wrong, it can report errors accurately. If the lexer comes across an unexpected character, it throws an error, points out exactly where 
+ the problem occurred. When the lexer finishes reading the input, it adds an end of file, to signal the end of the input.
+
+
+
+
+
+
+
+
+
+ 
