@@ -79,3 +79,47 @@
  With our language subset clearly defined, we now move on to building a simple interpreter capable of processing and executing code written in this subset. The 
  interpreter will focus on parsing and execution while ensuring syntax error detection for better reliability. Our priority remains simplicity and correctness over 
  raw performance, ensuring the interpreter is both functional and easy to understand.
+
+
+ # feature/maven_setup
+ 
+This project setup is meant to help you build a Ruby interpreter in Java and we are using Maven to make managing libraries, building the project and running it much easier.
+Maven is a tool that organizes everything for you and the main file we created for it is called pom.xml. This file tells Maven what the project is about, what tools or libraries 
+it needs and how to build and run the program. In the pom.xml file, we added some basic information about the project, like its name and version and told Maven that we’re using Java 17,
+which is important because it tells Maven to expect features from that version of Java. We also set the encoding to UTF-8, which is standard and ensures the project can handle all kinds 
+of text and characters properly. 
+We added some libraries to the project to make development easier. One of these is JUnit Jupiter, which is a tool for writing and running tests. Testing is super
+important because it helps you make sure your program works the way it should and doesn’t break when you make changes later. Another library we added is Log4j, which is used for logging.
+Logging means recording useful information about what your program is doing while it’s running. This is really helpful when you want to debug your program or understand what’s going on
+when something doesn’t work. 
+We also set up Maven to create a standalone file for the program, called a JAR file. This JAR file includes everything your program needs to run, so you can share or deploy it easily.
+We made sure the program will know to start running from the Main class.
+For logging, we created two configuration files. The first one, called log4j2.xml, is for when your program is running normally. It tells Log4j to write messages to the console, like a 
+log of what’s happening in the program. These messages include details like the time, the type of message and the actual message itself. We set the logging level to INFO, which means it will
+only show important messages and not flood you with too much detail. The second file, called log4j2-test.xml, is for when you are testing your program. This file is similar, but it shows more
+detailed messages because the logging level is set to DEBUG. This is really useful when running tests because it helps you see exactly what’s happening inside the program so you can fix 
+issues quickly if something goes wrong.
+Finally, we can say that, this setup organizes everything to make your work easier. Maven manages the libraries and builds the project for you. Log4j provides helpful logging so you can see
+what’s happening in your program, both during normal runs and tests. JUnit makes testing simple and efficient, so you can ensure your code works properly. This setup gives you all the tools 
+you need to start building and testing your Ruby interpreter with confidence.
+
+
+# feature/base-interpreter-impl
+
+This implementation is focusing on the key components of lexical analysis, parsing and execution. The process starts with Interpreter, which coordinates the execution of a program by tokenizing the
+source code, parsing the tokens and evaluating resulting structure. A Lexer is responsible for converting the source code into a sequence of tokens, while the Parser organizes into a meaningful 
+structure based on the syntax of the language. 
+We start with the Interpreter, which is the core part of the system. The Interpreter’s role is to manage the entire execution process. It takes the source code of a program, breaks it into tokens
+using the Lexer, then sends those tokens to the Parser to be structured and finally, it evaluates the parsed structure. The Interpreter also relies on the Context class to handle variables
+and their values during execution.
+Next, we have the Lexer. The Lexer is responsible for reading the source code and transforming it into a sequence of smaller units called tokens. Tokens represent the meaningful components of
+the code, such as keywords, operators, numbers, identifiers and strings. In this case, the Lexer identifies language keywords like if, else, while, and print, and recognizes operators
+like +, -, *, /, as well as more complex operators like == and != . It also processes string literals and numbers. Once the Lexer completes its job, it returns a list of tokens that will be further processed. 
+We also introduce TokenType, an enumeration that defines all the possible types of tokens the Lexer can generate. These include keywords, operators, identifiers, numbers and special tokens like EOF, 
+which signals the end of the source code.
+Once the Lexer has finished its job, the next step is parsing the tokens, which is handled by the Parser. The Parser takes the tokens from the Lexer and interprets them according to the syntax rules of
+the language. This means that the Parser organizes the tokens into a logical structure that reflects the intent of the code. For example, it handles different types of statements, such as variable
+assignments, if statement, while loops and expressions, like arithmetic operations. At this stage, methods like statement() and expression() help the Parser group tokens together and construct the 
+appropriate syntax tree. The Parser does this by recognizing operators and keywords. 
+Lastly, we move to the Context class, which is responsible for managing variables during the execution of the program. It stores a map of variable names and their values,
+so the Interpreter can retrieve and modify them as needed. If the program tries to access a variable that hasn't been defined,
