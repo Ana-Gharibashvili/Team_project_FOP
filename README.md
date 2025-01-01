@@ -175,4 +175,4 @@ The project includes comprehensive tests for:
 - Parser (syntax analysis)
 - Interpreter (execution)
 - Example algorithms
-- Error handling
+- Error handling;
