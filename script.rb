@@ -10,4 +10,4 @@ isPalindrome = 0
 if original == reversed
     isPalindrome = 1
 end
-print 'askdjnaskjd'
+print 'askskjd'
